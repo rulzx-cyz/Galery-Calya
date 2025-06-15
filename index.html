@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeri Foto Calyaa</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            'custom-pink': {
+              '50': '#FFF0F5', // Lavender Blush
+              '100': '#FFE4E1', // Misty Rose
+              '200': '#FFD1DC', // Pink Lace
+              '300': '#FFB6C1', // Light Pink
+              '400': '#FF9EB5', // Carnation Pink
+              '500': '#FF82AB', // Hot Pink
+              '600': '#FF69B4', // Deep Pink
+              '700': '#DB7093', // Pale Violet Red
+              '800': '#C71585', // Medium Violet Red
+              '900': '#A30F65', // Darker Pink
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+    .font-pacifico {
+      font-family: 'Pacifico', cursive;
+    }
+
+    @keyframes fall-sway-rotate {
+      0% {
+        transform: translateY(-10vh) translateX(0vw) rotate(0deg) scale(var(--element-scale, 1));
+        opacity: var(--element-opacity, 1);
+      }
+      20% {
+        transform: translateY(10vh) translateX(-4vw) rotate(calc(var(--initial-rotation, 0deg) + 15deg)) scale(var(--element-scale, 1));
+      }
+      40% {
+        transform: translateY(30vh) translateX(4vw) rotate(calc(var(--initial-rotation, 0deg) - 15deg)) scale(var(--element-scale, 1));
+      }
+      60% {
+        transform: translateY(50vh) translateX(-2vw) rotate(calc(var(--initial-rotation, 0deg) + 10deg)) scale(var(--element-scale, 1));
+      }
+      80% {
+        transform: translateY(70vh) translateX(2vw) rotate(calc(var(--initial-rotation, 0deg) - 10deg)) scale(var(--element-scale, 1));
+      }
+      100% {
+        transform: translateY(110vh) translateX(0vw) rotate(var(--initial-rotation, 0deg)) scale(var(--element-scale, 1));
+        opacity: calc(var(--element-opacity, 1) * 0.6); 
+      }
+    }
+
+    @keyframes gentle-float {
+      0% {
+        transform: translateY(-10vh) translateX(0vw) scale(var(--element-scale, 1));
+        opacity: var(--element-opacity, 1);
+      }
+      25% {
+        transform: translateY(15vh) translateX(1vw) scale(var(--element-scale, 1));
+      }
+      50% {
+        transform: translateY(40vh) translateX(-1vw) scale(var(--element-scale, 1));
+      }
+      75% {
+        transform: translateY(65vh) translateX(0.5vw) scale(var(--element-scale, 1));
+      }
+      100% {
+        transform: translateY(110vh) translateX(0vw) scale(var(--element-scale, 1));
+        opacity: calc(var(--element-opacity, 1) * 0.7);
+      }
+    }
+
+    @keyframes heartbeat-pulse {
+      0%, 100% {
+        /* Use a CSS variable for scale if defined, otherwise default to no additional scale for pulse */
+      }
+      50% {
+        transform: scale(calc(var(--element-scale, 1) * 1.1)); /* Pulse makes it 10% bigger than its current scale */
+      }
+    }
+
+    .animated-bg-element {
+      position: absolute;
+      top: 0;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      will-change: transform, opacity;
+      /* animation-name will be set dynamically or via specific classes */
+    }
+
+    .animate-fall-sway-rotate {
+      animation-name: fall-sway-rotate;
+    }
+
+    .animate-gentle-float {
+      animation-name: gentle-float;
+    }
+    
+    .animate-pulse-too {
+       animation-name: fall-sway-rotate, heartbeat-pulse; /* Example for hearts, adjust as needed */
+       /* Ensure heartbeat-pulse duration is short enough to look like a pulse, e.g., 1.5s, 
+          and fall-sway-rotate is much longer. This might need separate elements or more complex logic
+          if animation-name is the only way to apply multiple. 
+          For simplicity, the heartbeat-pulse can be added to the transform within the primary animation,
+          or a sub-element can pulse.
+          Let's try simpler: heartbeat-pulse will be applied in conjunction with the main fall animation.
+          This will require careful timing.
+          A common pattern is to have the pulse animation on a child element, or to have the main
+          falling animation handle the scale variance if a simple pulse is desired.
+          Given the current structure, combining animation-name is the most direct.
+          The `transform` in `heartbeat-pulse` needs to respect the `fall-sway-rotate` transforms.
+          This often means applying pulse to a child or making `fall-sway-rotate` include a pulse.
+          Let's make `heartbeat-pulse` an independent animation and assign it alongside the falling one.
+          It will affect the scale property.
+        */
+    }
+
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "react": "https://esm.sh/react@^19.1.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-custom-pink-50">
+  <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>

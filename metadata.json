@@ -1,0 +1,5 @@
+{
+  "name": "Galeri Foto Lucu Interaktif",
+  "description": "Sebuah galeri foto lucu yang interaktif dan menarik secara visual, dibangun dengan React, TypeScript, dan Tailwind CSS.",
+  "requestFramePermissions": []
+}
