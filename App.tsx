@@ -107,6 +107,8 @@ const App: React.FC = () => {
           <span role="img" aria-label="laughing-emoji" className="mr-2 sm:mr-3">❤️</span>
           Galeri Foto Calyaa
         </h1>
+      </h1>
+       </h1>
         <p className="mt-3 text-base sm:text-lg text-custom-pink-700">Website ini Dibuat Oleh Maul Developer Bertujuan untuk Menyimpan Poto Lucu Calyaaa❤️</p>
         
         <div className="mt-6 text-center">
